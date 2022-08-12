@@ -1,0 +1,716 @@
+﻿<pu:WindowX x:Class="CryptoDashboard.MainWindow"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:local="clr-namespace:CryptoDashboard"
+            xmlns:pu="clr-namespace:Panuon.WPF.UI;assembly=Panuon.WPF.UI"
+            mc:Ignorable="d"
+            Title="MainWindow"
+            Height="750"
+            Width="1200"
+            Background="#29263D"
+            Foreground="White"
+            Padding="0,30,30,30"
+            pu:WindowXCaption.Buttons="None"
+            pu:WindowXCaption.Height="60"
+            pu:ScrollViewerHelper.ScrollBarPosition="Inside"
+            pu:ScrollBarHelper.ThumbBackground="#22AAAAAA"
+            pu:ScrollBarHelper.HoverThumbBackground="#44AAAAAA">
+    <pu:WindowXCaption.HeaderTemplate>
+        <DataTemplate>
+            <Grid VerticalAlignment="Bottom">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Image Source="/CryptoDashboard;component/Resources/HeadImage.JPG"
+                       Width="30"
+                       Height="30" />
+                <ComboBox Grid.Column="1"
+                          pu:WindowX.IsDragMoveArea="False"
+                          Width="180"
+                          Background="Transparent"
+                          BorderThickness="0"
+                          Foreground="White"
+                          FontSize="16"
+                          FontWeight="Bold"
+                          pu:ComboBoxHelper.ItemsHeight="40"
+                          pu:ComboBoxHelper.ItemsPadding="15,0"
+                          pu:ComboBoxHelper.ItemsHoverBackground="#0AFFFFFF"
+                          pu:ComboBoxHelper.ItemsSelectedBackground="#1AFFFFFF"
+                          pu:DropDownHelper.BorderThickness="1"
+                          pu:DropDownHelper.BorderBrush="#4E4875"
+                          pu:DropDownHelper.Background="#29263D"
+                          pu:DropDownHelper.CornerRadius="15"
+                          pu:DropDownHelper.ShadowColor="#4E4E4E"
+                          pu:ShadowHelper.Opacity="0.5"
+                          pu:ShadowHelper.BlurRadius="25">
+                    <pu:ComboBoxHelper.ToggleArrowTransformControlStyle>
+                        <Style TargetType="pu:TransformControl"
+                               BasedOn="{StaticResource {x:Static pu:ComboBoxHelper.ToggleArrowTransformControlStyle}}">
+                            <Setter Property="FontSize"
+                                    Value="10" />
+                            <Setter Property="Opacity"
+                                    Value="0.7" />
+                        </Style>
+                    </pu:ComboBoxHelper.ToggleArrowTransformControlStyle>
+                    <ComboBox.ItemContainerStyle>
+                        <Style TargetType="ComboBoxItem"
+                               BasedOn="{StaticResource {x:Type ComboBoxItem}}">
+                            <Setter Property="FontSize"
+                                    Value="12" />
+                            <Setter Property="FontWeight"
+                                    Value="Normal" />
+                        </Style>
+                    </ComboBox.ItemContainerStyle>
+                    <ComboBoxItem Content="PancakeSwap Pair"
+                                  IsSelected="True" />
+                    <ComboBoxItem Content="Item 2" />
+                    <ComboBoxItem Content="Item 3" />
+                    <ComboBoxItem Content="Item 4" />
+                </ComboBox>
+                <pu:SearchBox Grid.Column="3"
+                              pu:WindowX.IsDragMoveArea="False"
+                              Width="250"
+                              Height="35"
+                              FontSize="10"
+                              Background="#35324C"
+                              CornerRadius="15"
+                              Watermark="Search"
+                              WatermarkForeground="#22FFFFFF"
+                              Icon="&#xe941;"
+                              Padding="10,0"
+                              pu:IconHelper.Margin="15,0,0,0"
+                              pu:IconHelper.Foreground="#88FFFFFF"
+                              ItemsHeight="40"
+                              ItemsPadding="15,0"
+                              ItemsHoverBackground="#0AFFFFFF"
+                              pu:DropDownHelper.BorderThickness="1"
+                              pu:DropDownHelper.BorderBrush="#4E4875"
+                              pu:DropDownHelper.Background="#29263D"
+                              pu:DropDownHelper.CornerRadius="15"
+                              pu:DropDownHelper.ShadowColor="#4E4E4E"
+                              pu:ShadowHelper.Opacity="0.5"
+                              pu:ShadowHelper.BlurRadius="25">
+                    <pu:SearchBoxItem Content="Item 1" />
+                    <pu:SearchBoxItem Content="Item 2" />
+                    <pu:SearchBoxItem Content="Item 3" />
+                    <pu:SearchBoxItem Content="Item 4" />
+                </pu:SearchBox>
+                <ToggleButton Grid.Column="4"
+                              pu:WindowX.IsDragMoveArea="False"
+                              Margin="15,0,0,0"
+                              Width="150"
+                              Height="35"
+                              pu:ToggleButtonHelper.CornerRadius="17.5"
+                              Background="#362B55"
+                              Foreground="White"
+                              pu:ToggleButtonHelper.HoverBackground="#4D3E75"
+                              pu:ToggleButtonHelper.CheckedBackground="#9656FF"
+                              Content="Switch to ETH"
+                              pu:ToggleButtonHelper.CheckedContent="Switch to BSC"
+                              HorizontalContentAlignment="Stretch">
+                    <pu:ToggleButtonHelper.Icon>
+                        <Border Width="28"
+                                Height="28"
+                                CornerRadius="14"
+                                Background="#9656FF">
+                            <TextBlock Text="&#xe942;"
+                                       FontSize="10"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center" />
+                        </Border>
+                    </pu:ToggleButtonHelper.Icon>
+                    <pu:ToggleButtonHelper.CheckedIcon>
+                        <Border Width="28"
+                                Height="28"
+                                CornerRadius="14"
+                                Background="White">
+                            <TextBlock Text="&#xe942;"
+                                       FontSize="10"
+                                       Foreground="#9656FF"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center" />
+                        </Border>
+                    </pu:ToggleButtonHelper.CheckedIcon>
+
+                    <ToggleButton.ContentTemplate>
+                        <DataTemplate>
+                            <ContentControl Content="{Binding}"
+                                            HorizontalAlignment="Center" />
+                        </DataTemplate>
+                    </ToggleButton.ContentTemplate>
+                </ToggleButton>
+                <pu:DropDown Grid.Column="6"
+                             pu:WindowX.IsDragMoveArea="False"
+                             Margin="0,0,30,0"
+                             pu:DropDownHelper.VerticalOffset="5"
+                             pu:DropDownHelper.Placement="BottomLeft"
+                             pu:DropDownHelper.Width="200"
+                             pu:DropDownHelper.Height="200"
+                             pu:DropDownHelper.BorderThickness="1"
+                             pu:DropDownHelper.BorderBrush="#4E4875"
+                             pu:DropDownHelper.Background="#29263D"
+                             pu:DropDownHelper.CornerRadius="15"
+                             pu:DropDownHelper.ShadowColor="#4E4E4E"
+                             pu:ShadowHelper.Opacity="0.5"
+                             pu:ShadowHelper.BlurRadius="25">
+                    <pu:DropDown.Content>
+                        <ToggleButton IsChecked="{Binding IsOpen, RelativeSource={RelativeSource AncestorType=pu:DropDown}, Mode=TwoWay}"
+                                      Background="Transparent"
+                                      Foreground="White">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="&#xe903;"
+                                           VerticalAlignment="Center"
+                                           FontFamily="{StaticResource PanuonIconFont}" />
+                                <Border Margin="10,0,0,0"
+                                        Width="35"
+                                        Height="35"
+                                        CornerRadius="10">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="/CryptoDashboard;component/Resources/HeadImage.JPG" />
+                                    </Border.Background>
+                                </Border>
+                            </StackPanel>
+                        </ToggleButton>
+                    </pu:DropDown.Content>
+                    <pu:DropDown.Child>
+                        <Border />
+                    </pu:DropDown.Child>
+                </pu:DropDown>
+            </Grid>
+        </DataTemplate>
+    </pu:WindowXCaption.HeaderTemplate>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Button Background="Transparent"
+                    Foreground="White"
+                    Content="&#xe941;"
+                    FontSize="18"
+                    pu:ButtonHelper.HoverForeground="Gold"
+                    FontFamily="{StaticResource PanuonIconFont}" />
+            <StackPanel Grid.Row="1"
+                        Margin="0,30,0,0"
+                        HorizontalAlignment="Center">
+                <ListBox Background="#432A49"
+                         BorderThickness="0"
+                         Foreground="White"
+                         Padding="7"
+                         pu:ListBoxHelper.CornerRadius="16"
+                         pu:ListBoxHelper.ItemsHoverBackground="#BF6389"
+                         pu:ListBoxHelper.ItemsSelectedBackground="#F43984"
+                         pu:ListBoxHelper.ItemsWidth="22"
+                         pu:ListBoxHelper.ItemsHeight="22"
+                         pu:ListBoxHelper.ItemsMargin="0,4"
+                         pu:ListBoxHelper.ItemsCornerRadius="11"
+                         HorizontalContentAlignment="Center"
+                         VerticalContentAlignment="Center">
+                    <ListBoxItem IsSelected="True"
+                                 Content="&#xe941;"
+                                 FontFamily="{StaticResource PanuonIconFont}" />
+                    <ListBoxItem Content="&#xe941;"
+                                 FontFamily="{StaticResource PanuonIconFont}" />
+                    <ListBoxItem Content="&#xe941;"
+                                 FontFamily="{StaticResource PanuonIconFont}" />
+                    <ListBoxItem Content="&#xe941;"
+                                 FontFamily="{StaticResource PanuonIconFont}" />
+                </ListBox>
+                <ListBox Margin="0,10,0,0"
+                         Background="#332855"
+                         BorderThickness="0"
+                         Foreground="White"
+                         Padding="7"
+                         pu:ListBoxHelper.CornerRadius="16"
+                         pu:ListBoxHelper.ItemsHoverBackground="#7B63B0"
+                         pu:ListBoxHelper.ItemsSelectedBackground="#793AFF"
+                         pu:ListBoxHelper.ItemsWidth="22"
+                         pu:ListBoxHelper.ItemsHeight="22"
+                         pu:ListBoxHelper.ItemsMargin="0,4"
+                         pu:ListBoxHelper.ItemsCornerRadius="11"
+                         HorizontalContentAlignment="Center"
+                         VerticalContentAlignment="Center">
+                    <ListBoxItem IsSelected="True"
+                                 Content="&#xe941;"
+                                 FontFamily="{StaticResource PanuonIconFont}" />
+                    <ListBoxItem Content="&#xe941;"
+                                 FontFamily="{StaticResource PanuonIconFont}" />
+                    <ListBoxItem Content="&#xe941;"
+                                 FontFamily="{StaticResource PanuonIconFont}" />
+                    <ListBoxItem Content="&#xe941;"
+                                 FontFamily="{StaticResource PanuonIconFont}" />
+                </ListBox>
+            </StackPanel>
+            <StackPanel Grid.Row="2"
+                        Margin="0,30,0,0">
+                <Button Background="Transparent"
+                        Foreground="White"
+                        Content="&#xe941;"
+                        FontSize="18"
+                        pu:ButtonHelper.HoverForeground="Gold"
+                        FontFamily="{StaticResource PanuonIconFont}" />
+                <Button Margin="0,20,0,0"
+                        Background="Transparent"
+                        Foreground="White"
+                        Content="&#xe941;"
+                        FontSize="18"
+                        pu:ButtonHelper.HoverForeground="Gold"
+                        FontFamily="{StaticResource PanuonIconFont}" />
+
+            </StackPanel>
+            <ToggleButton Grid.Row="4"
+                          Background="Transparent"
+                          Foreground="Gray"
+                          Content="&#xe941;"
+                          FontSize="18"
+                          pu:ToggleButtonHelper.HoverForeground="Yellow"
+                          pu:ToggleButtonHelper.CheckedForeground="Gold"
+                          pu:ToggleButtonHelper.CheckedContent="&#xe942;"
+                          FontFamily="{StaticResource PanuonIconFont}" />
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400" />
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="250" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Border Margin="10,0,0,0"
+                            Width="32"
+                            Height="32"
+                            CornerRadius="10">
+                        <Border.Background>
+                            <ImageBrush ImageSource="/CryptoDashboard;component/Resources/HeadImage.JPG" />
+                        </Border.Background>
+                    </Border>
+                    <StackPanel Grid.Column="1"
+                                Margin="10,0,0,0"
+                                VerticalAlignment="Center">
+                        <TextBlock FontSize="13">
+                            <Run Text="BSC/" />
+                            <Run Text="Cake"
+                                 FontWeight="Bold" />
+                        </TextBlock>
+                        <TextBlock Text="PancakeSwap Token 0x123123"
+                                   FontSize="10"
+                                   Foreground="#AAAAAA" />
+                    </StackPanel>
+                    <Button Grid.Column="2"
+                            Width="35"
+                            Height="35"
+                            Background="Transparent"
+                            BorderThickness="1"
+                            BorderBrush="#34304c"
+                            Foreground="White"
+                            Content="&#xe941;"
+                            pu:ButtonHelper.CornerRadius="10"
+                            pu:ButtonHelper.HoverBackground="#11FFFFFF"
+                            FontFamily="{StaticResource PanuonIconFont}" />
+
+                </Grid>
+                <Grid Grid.Row="1"
+                      Margin="0,10,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Button Width="30"
+                            Height="30"
+                            Background="Transparent"
+                            BorderThickness="1"
+                            BorderBrush="#34304c"
+                            Foreground="White"
+                            Content="&#xe941;"
+                            pu:ButtonHelper.CornerRadius="8"
+                            pu:ButtonHelper.HoverBackground="#11FFFFFF"
+                            FontFamily="{StaticResource PanuonIconFont}" />
+                    <ToggleButton Grid.Column="1"
+                                  Margin="5,0,0,0"
+                                  Width="30"
+                                  Height="30"
+                                  Background="Transparent"
+                                  BorderThickness="1"
+                                  BorderBrush="#34304c"
+                                  Foreground="White"
+                                  Content="&#xe941;"
+                                  pu:ToggleButtonHelper.CornerRadius="8"
+                                  pu:ToggleButtonHelper.HoverBackground="#11FFFFFF"
+                                  pu:ToggleButtonHelper.CheckedForeground="Gold"
+                                  pu:ToggleButtonHelper.CheckedContent="&#xe942;"
+                                  FontFamily="{StaticResource PanuonIconFont}" />
+                    <Button Grid.Column="2"
+                            Margin="5,0,0,0"
+                            Width="30"
+                            Height="30"
+                            Background="Transparent"
+                            BorderThickness="1"
+                            BorderBrush="#34304c"
+                            Foreground="White"
+                            Content="&#xe941;"
+                            pu:ButtonHelper.CornerRadius="8"
+                            pu:ButtonHelper.HoverBackground="#11FFFFFF"
+                            FontFamily="{StaticResource PanuonIconFont}" />
+                    <Button Grid.Column="4"
+                            Height="30"
+                            Padding="12,0"
+                            FontSize="10"
+                            FontWeight="Bold"
+                            Background="Transparent"
+                            BorderThickness="1"
+                            BorderBrush="#C87771"
+                            Foreground="White"
+                            Content="TRADE"
+                            pu:ButtonHelper.CornerRadius="8"
+                            pu:ButtonHelper.HoverBackground="#C87771" />
+
+                </Grid>
+                <TextBlock Grid.Row="2"
+                           Margin="0,30,0,0"
+                           FontSize="25"
+                           FontWeight="Bold">
+                    <Run Text="983.47520" />
+                    <Run Text="$"
+                         FontSize="15" />
+                </TextBlock>
+                <Grid Grid.Row="3"
+                      Margin="0,5,0,0">
+                    <TextBlock>
+                        <Run Text="&#xe961;"
+                             Foreground="#9656FF"
+                             FontFamily="{StaticResource PanuonIconFont}" />
+                        <Run Text="983.47520" />
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Right">
+                        <Run Text="24H: +5.74" />
+                        <Run Text="&#xe961;"
+                             Foreground="#23A3EC"
+                             FontFamily="{StaticResource PanuonIconFont}" />
+                    </TextBlock>
+
+                </Grid>
+                <ItemsControl Grid.Row="4"
+                              Margin="-20,20,-20,0"
+                              x:Name="IcItems">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid VerticalAlignment="Top"
+                                         Columns="2" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Height="95"
+                                    Background="#3B3854"
+                                    CornerRadius="25"
+                                    Margin="10">
+                                <Grid Margin="15,20">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Width="40">
+                                        <Border Width="40"
+                                                CornerRadius="15"
+                                                Opacity="0.2"
+                                                Background="{Binding AccentBrush}" />
+                                        <TextBlock Text="{Binding Icon}"
+                                                   FontSize="20"
+                                                   FontFamily="{StaticResource PanuonIconFont}"
+                                                   Foreground="{Binding AccentBrush}"
+                                                   VerticalAlignment="Center"
+                                                   HorizontalAlignment="Center" />
+                                    </Grid>
+                                    <StackPanel Grid.Column="1"
+                                                Margin="20,0,0,0"
+                                                VerticalAlignment="Center">
+                                        <TextBlock FontSize="11"
+                                                   Foreground="LightGray"
+                                                   Text="{Binding DisplayName}" />
+                                        <TextBlock Margin="0,7,0,0"
+                                                   FontSize="14"
+                                                   FontWeight="Bold"
+                                                   Text="{Binding Value}" />
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <Button Grid.Row="5"
+                        FontSize="10"
+                        Content="MORE INFO"
+                        HorizontalAlignment="Left"
+                        Foreground="Gray"
+                        Background="Transparent"
+                        pu:ButtonHelper.HoverForeground="White" />
+                <Grid Grid.Row="6"
+                      Height="150">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Text="Score"
+                                   FontSize="16"
+                                   FontWeight="Bold" />
+                        <TextBlock Text="97"
+                                   FontSize="25"
+                                   FontWeight="Bold" />
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="7"
+                      Margin="0,5,0,0"
+                      TextBlock.Foreground="LightGray"
+                      TextBlock.FontSize="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Community Trust" />
+                    <TextBlock Grid.Column="1">
+                        <Run Text="&#xe961;"
+                             Foreground="#dc6294"
+                             FontFamily="{StaticResource PanuonIconFont}" />
+                        <Run Text="88%" />
+                    </TextBlock>
+                    <TextBlock Margin="20,0,0,0"
+                               Grid.Column="2"
+                               Text="25 VOTES" />
+                </Grid>
+                <ProgressBar Grid.Row="8"
+                             Margin="0,20,0,0"
+                             Height="6"
+                             Background="#33324B"
+                             Foreground="#2A9BDD"
+                             Value="90"
+                             pu:ProgressBarHelper.CornerRadius="3"
+                             pu:ProgressBarHelper.AnimationDuration="0:0:0.3"
+                             pu:ProgressBarHelper.AnimationEase="CubicInOut" />
+            </Grid>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <ComboBox pu:WindowX.IsDragMoveArea="False"
+                                  Background="Transparent"
+                                  BorderThickness="0"
+                                  Foreground="White"
+                                  FontSize="16"
+                                  FontWeight="Bold"
+                                  pu:ComboBoxHelper.ItemsHeight="40"
+                                  pu:ComboBoxHelper.ItemsPadding="15,0"
+                                  pu:ComboBoxHelper.ItemsHoverBackground="#0AFFFFFF"
+                                  pu:ComboBoxHelper.ItemsSelectedBackground="#1AFFFFFF"
+                                  pu:DropDownHelper.Width="200"
+                                  pu:DropDownHelper.BorderThickness="1"
+                                  pu:DropDownHelper.BorderBrush="#4E4875"
+                                  pu:DropDownHelper.Background="#29263D"
+                                  pu:DropDownHelper.CornerRadius="15"
+                                  pu:DropDownHelper.ShadowColor="#4E4E4E"
+                                  pu:ShadowHelper.Opacity="0.5"
+                                  pu:ShadowHelper.BlurRadius="25">
+                            <pu:ComboBoxHelper.ToggleArrowTransformControlStyle>
+                                <Style TargetType="pu:TransformControl"
+                                       BasedOn="{StaticResource {x:Static pu:ComboBoxHelper.ToggleArrowTransformControlStyle}}">
+                                    <Setter Property="FontSize"
+                                            Value="10" />
+                                    <Setter Property="Opacity"
+                                            Value="0.7" />
+                                </Style>
+                            </pu:ComboBoxHelper.ToggleArrowTransformControlStyle>
+                            <ComboBox.ItemContainerStyle>
+                                <Style TargetType="ComboBoxItem"
+                                       BasedOn="{StaticResource {x:Type ComboBoxItem}}">
+                                    <Setter Property="FontSize"
+                                            Value="12" />
+                                    <Setter Property="FontWeight"
+                                            Value="Normal" />
+                                </Style>
+                            </ComboBox.ItemContainerStyle>
+                            <ComboBoxItem Content="Trade History"
+                                          IsSelected="True" />
+                            <ComboBoxItem Content="Item 2" />
+                            <ComboBoxItem Content="Item 3" />
+                            <ComboBoxItem Content="Item 4" />
+                        </ComboBox>
+                        <pu:DropDown Grid.Column="2"
+                                     pu:WindowX.IsDragMoveArea="False"
+                                     pu:DropDownHelper.VerticalOffset="5"
+                                     pu:DropDownHelper.Placement="BottomLeft"
+                                     pu:DropDownHelper.Width="200"
+                                     pu:DropDownHelper.Height="200"
+                                     pu:DropDownHelper.BorderThickness="1"
+                                     pu:DropDownHelper.BorderBrush="#4E4875"
+                                     pu:DropDownHelper.Background="#29263D"
+                                     pu:DropDownHelper.CornerRadius="15"
+                                     pu:DropDownHelper.ShadowColor="#4E4E4E"
+                                     pu:ShadowHelper.Opacity="0.5"
+                                     pu:ShadowHelper.BlurRadius="25">
+                            <pu:DropDown.Content>
+                                <ToggleButton IsChecked="{Binding IsOpen, RelativeSource={RelativeSource AncestorType=pu:DropDown}, Mode=TwoWay}"
+                                              Background="Transparent"
+                                              Foreground="White">
+                                    <StackPanel Grid.Column="2"
+                                                Orientation="Horizontal">
+                                        <TextBlock VerticalAlignment="Center"
+                                                   Text="&#xe960;"
+                                                   FontSize="16"
+                                                   FontFamily="{StaticResource PanuonIconFont}" />
+                                        <TextBlock Margin="15,0,0,0"
+                                                   VerticalAlignment="Center"
+                                                   Text="BSC"
+                                                   FontWeight="Bold" />
+                                    </StackPanel>
+                                </ToggleButton>
+                            </pu:DropDown.Content>
+                            <pu:DropDown.Child>
+                                <Border />
+                            </pu:DropDown.Child>
+                        </pu:DropDown>
+                        <TextBlock Grid.Column="3"
+                                   VerticalAlignment="Center"
+                                   Margin="5,0,0,0"
+                                   Foreground="Gray"
+                                   Text="Last 521 Trades" />
+                    </Grid>
+                </Grid>
+                <ListBox x:Name="LsbItems2"
+                         Grid.Row="2"
+                         Margin="0,20,0,0"
+                         Background="Transparent"
+                         BorderThickness="0"
+                         HorizontalContentAlignment="Stretch"
+                         Foreground="Gray"
+                         pu:ListBoxHelper.ItemsPadding="30,0"
+                         pu:ListBoxHelper.ItemsCornerRadius="15"
+                         pu:ListBoxHelper.ItemsBackground="#2E2B43"
+                         pu:ListBoxHelper.ItemsHoverBackground="#3B3854"
+                         pu:ListBoxHelper.ItemsSelectedBackground="#3B3854"
+                         pu:ListBoxHelper.ItemsHoverForeground="White"
+                         pu:ListBoxHelper.ItemsHeight="60"
+                         pu:ListBoxHelper.ItemsMargin="0,0,0,10">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem"
+                               BasedOn="{StaticResource {x:Type ListBoxItem}}">
+                            <EventSetter Event="MouseDoubleClick"
+                                         Handler="ListBoxItem_MouseDoubleClick" />
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding Property1}" 
+                                           VerticalAlignment="Center" />
+                                <TextBlock Grid.Column="1"
+                                           VerticalAlignment="Center">
+                                    <Run x:Name="Run2"
+                                         Text="&#xe961;"
+                                         Foreground="#635F8F"
+                                         FontFamily="{StaticResource PanuonIconFont}" />
+                                    <Run Text="{Binding Property2}" />
+                                </TextBlock>
+                                <TextBlock Grid.Column="2"
+                                           VerticalAlignment="Center">
+                                    <Run Text="{Binding Property3}" />
+                                    <Run x:Name="Run3"
+                                         Text="&#xe961;"
+                                         Foreground="#22B1FF"
+                                         FontFamily="{StaticResource PanuonIconFont}" />
+                                </TextBlock>
+                                <TextBlock Grid.Column="3"
+                                           Text="{Binding Property4}"
+                                           VerticalAlignment="Center" />
+                                <Button Grid.Column="4"
+                                        Background="Transparent"
+                                        Foreground="White"
+                                        Content="&#xe941;"
+                                        FontSize="18"
+                                        pu:ButtonHelper.HoverForeground="Gold"
+                                        FontFamily="{StaticResource PanuonIconFont}" />
+                            </Grid>
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}, Mode=OneWay}"
+                                             Value="True">
+                                    <Setter TargetName="Run2"
+                                            Property="Foreground"
+                                            Value="#9656FF" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsRaise}"
+                                             Value="True">
+                                    <Setter TargetName="Run3"
+                                            Property="Text"
+                                            Value="&#xe965;" />
+                                    <Setter TargetName="Run3"
+                                            Property="Foreground"
+                                            Value="#F06D85" />
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Button Grid.Row="3"
+                        HorizontalAlignment="Right"
+                        FontSize="10"
+                        Content="MORE"
+                        Foreground="Gray"
+                        Background="Transparent"
+                        pu:ButtonHelper.HoverForeground="White" />
+            </Grid>
+        </Grid>
+    </Grid>
+</pu:WindowX>
