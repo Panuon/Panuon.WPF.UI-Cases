@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32802.462
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectM", "ProjectM\ProjectM.csproj", "{B62CF77B-3201-4ED9-8742-7CFCBC550EB4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedLibraries", "SharedLibraries", "{D8D50CB0-6445-49FB-8E11-09E1C70F5808}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectM.UI", "SharedLibraries\ProjectM.UI\ProjectM.UI.csproj", "{67BD90EE-1972-4B50-8C4D-D33CEB46D758}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectM.Shared", "SharedLibraries\ProjectM.Shared\ProjectM.Shared.csproj", "{95BCF3DA-DB5F-4E1F-873D-9A670B90871E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B62CF77B-3201-4ED9-8742-7CFCBC550EB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B62CF77B-3201-4ED9-8742-7CFCBC550EB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B62CF77B-3201-4ED9-8742-7CFCBC550EB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B62CF77B-3201-4ED9-8742-7CFCBC550EB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67BD90EE-1972-4B50-8C4D-D33CEB46D758}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67BD90EE-1972-4B50-8C4D-D33CEB46D758}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67BD90EE-1972-4B50-8C4D-D33CEB46D758}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67BD90EE-1972-4B50-8C4D-D33CEB46D758}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95BCF3DA-DB5F-4E1F-873D-9A670B90871E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95BCF3DA-DB5F-4E1F-873D-9A670B90871E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95BCF3DA-DB5F-4E1F-873D-9A670B90871E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95BCF3DA-DB5F-4E1F-873D-9A670B90871E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{67BD90EE-1972-4B50-8C4D-D33CEB46D758} = {D8D50CB0-6445-49FB-8E11-09E1C70F5808}
+		{95BCF3DA-DB5F-4E1F-873D-9A670B90871E} = {D8D50CB0-6445-49FB-8E11-09E1C70F5808}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7D09B277-3AFA-433D-9040-4C8DB0BD7F28}
+	EndGlobalSection
+EndGlobal
