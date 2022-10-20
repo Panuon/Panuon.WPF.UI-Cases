@@ -2,6 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <SolidColorBrush x:Key="WindowBackground">#FFFFFF</SolidColorBrush>
-    <SolidColorBrush x:Key="MessageForeground">#000000</SolidColorBrush>
+    <SolidColorBrush x:Key="MessageForeground">#0D062D</SolidColorBrush>
+    <SolidColorBrush x:Key="DescriptionForeground">#787486</SolidColorBrush>
 
+    <SolidColorBrush x:Key="SeparatorBrush">#DBDBDB</SolidColorBrush>
+    <SolidColorBrush x:Key="ItemHoverBrush">#145030E5</SolidColorBrush>
 </ResourceDictionary>

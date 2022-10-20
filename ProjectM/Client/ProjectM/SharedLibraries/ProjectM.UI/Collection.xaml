@@ -4,7 +4,9 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/ProjectM.UI;component/Styles/ButtonStyle.xaml" />
         <ResourceDictionary Source="/ProjectM.UI;component/Styles/ComboBoxStyle.xaml" />
+        <ResourceDictionary Source="/ProjectM.UI;component/Styles/ListBoxStyle.xaml" />
         <ResourceDictionary Source="/ProjectM.UI;component/Styles/TextBoxStyle.xaml" />
+        <ResourceDictionary Source="/ProjectM.UI;component/Styles/ToggleButtonStyle.xaml" />
         <ResourceDictionary Source="/ProjectM.UI;component/Styles/WindowXStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
     
