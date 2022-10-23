@@ -7,6 +7,17 @@
         <pucore:SharedResourceDictionary Source="/Panuon.WPF.UI;component/Styles/ButtonStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
+    <Style x:Key="DescriptionButtonStyle"
+           TargetType="Button"
+           BasedOn="{StaticResource {x:Static purs:StyleKeys.ButtonStyle}}">
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource DescriptionForeground}" />
+        <Setter Property="pu:ButtonHelper.HoverForeground"
+                Value="{DynamicResource MessageForeground}" />
+    </Style>
+    
     <Style x:Key="IconButtonStyle"
            TargetType="Button"
            BasedOn="{StaticResource {x:Static purs:StyleKeys.ButtonStyle}}">
@@ -23,6 +34,72 @@
            BasedOn="{StaticResource IconButtonStyle}">
         <Setter Property="Foreground"
                 Value="{DynamicResource DescriptionForeground}" />
+        <Setter Property="pu:ButtonHelper.HoverForeground"
+                Value="{DynamicResource MessageForeground}" />
     </Style>
-    
+
+    <Style x:Key="OptionsButtonStyle"
+           TargetType="Button"
+           BasedOn="{StaticResource {x:Static purs:StyleKeys.ButtonStyle}}">
+        <Setter Property="Height"
+                Value="35" />
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="FontWeight"
+                Value="Regular" />
+        <Setter Property="FontSize"
+                Value="12" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Stretch" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource DescriptionForeground}" />
+        <Setter Property="pu:ButtonHelper.HoverForeground"
+                Value="{DynamicResource MessageForeground}" />
+    </Style>
+
+    <Style x:Key="ControlIconButtonStyle"
+           TargetType="Button"
+           BasedOn="{StaticResource {x:Static purs:StyleKeys.ButtonStyle}}">
+        <Setter Property="Background" 
+                Value="{DynamicResource InputBackground}" />
+        <Setter Property="FontFamily"
+                Value="/ProjectM.UI;component/Resources/Fonts/#ProjectMIcon" />
+        <Setter Property="Padding"
+                Value="0" />
+        <Setter Property="Width"
+                Value="20" />
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="FontSize"
+                Value="14" />
+        <Setter Property="pu:ButtonHelper.CornerRadius"
+                Value="2" />
+    </Style>
+
+    <Style x:Key="BoundingButtonStyle"
+           TargetType="Button"
+           BasedOn="{StaticResource {x:Static purs:StyleKeys.ButtonStyle}}">
+        <Setter Property="pu:IconHelper.FontSize"
+                Value="14" />
+        <Setter Property="Padding"
+                Value="10,0" />
+        <Setter Property="FontWeight"
+                Value="Medium" />
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource DescriptionForeground}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource InputBorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="pu:ButtonHelper.CornerRadius"
+                Value="4" />
+        <Setter Property="pu:ButtonHelper.HoverBackground"
+                Value="{DynamicResource ThemeBrush}" />
+        <Setter Property="pu:ButtonHelper.HoverBorderBrush"
+                Value="{DynamicResource ThemeBrush}" />
+        <Setter Property="pu:ButtonHelper.HoverForeground"
+                Value="{DynamicResource MessageInverseForeground}" />
+    </Style>
 </ResourceDictionary>

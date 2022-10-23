@@ -7,6 +7,13 @@
         <pucore:SharedResourceDictionary Source="/Panuon.WPF.UI;component/Styles/ToggleButtonStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
+    <Style x:Key="OptionsToggleButtonStyle"
+           TargetType="ToggleButton"
+           BasedOn="{StaticResource {x:Static purs:StyleKeys.ToggleButtonStyle}}">
+        <Setter Property="Background"
+                Value="Transparent" />
+    </Style>
+
     <Style x:Key="IconToggleButtonStyle"
            TargetType="ToggleButton"
            BasedOn="{StaticResource {x:Static purs:StyleKeys.ToggleButtonStyle}}">

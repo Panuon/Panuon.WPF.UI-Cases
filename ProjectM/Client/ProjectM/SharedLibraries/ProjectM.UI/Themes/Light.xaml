@@ -3,8 +3,22 @@
 
     <SolidColorBrush x:Key="WindowBackground">#FFFFFF</SolidColorBrush>
     <SolidColorBrush x:Key="MessageForeground">#0D062D</SolidColorBrush>
+    <SolidColorBrush x:Key="MessageInverseForeground">#FFFFFF</SolidColorBrush>
     <SolidColorBrush x:Key="DescriptionForeground">#787486</SolidColorBrush>
 
     <SolidColorBrush x:Key="SeparatorBrush">#DBDBDB</SolidColorBrush>
     <SolidColorBrush x:Key="ItemHoverBrush">#145030E5</SolidColorBrush>
+
+    <SolidColorBrush x:Key="DropDownBackground">#FFFFFF</SolidColorBrush>
+    <SolidColorBrush x:Key="DropDownBorderBrush">#CDCDCD</SolidColorBrush>
+    <Color x:Key="DropDownShadowColor">#AAAAAA</Color>
+
+
+    <SolidColorBrush x:Key="InputBackground">#F5F5F5</SolidColorBrush>
+    <SolidColorBrush x:Key="InputBorderBrush">#787486</SolidColorBrush>
+    <SolidColorBrush x:Key="InputForeground">#0D062D</SolidColorBrush>
+    <SolidColorBrush x:Key="InputWatermarkForeground">#787486</SolidColorBrush>
+
+    <SolidColorBrush x:Key="ThemeBrush">#5030E5</SolidColorBrush>
+    
 </ResourceDictionary>

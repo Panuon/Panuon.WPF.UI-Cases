@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 
 namespace ProjectM.ViewModels
@@ -32,6 +33,46 @@ namespace ProjectM.ViewModels
                 {
                     ProjectName = "Mobile App",
                     AccentBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#7AC555")),
+                    InviteUserItems = new ObservableCollection<InviteUserItem>()
+                    {
+                        new InviteUserItem()
+                        {
+                            User = new UserItem()
+                            {
+                                Name = "John",
+                                HeadImage = "/ProjectM.UI;component/Resources/Images/logo.png",
+                            },
+                        },
+                        new InviteUserItem()
+                        {
+                            User = new UserItem()
+                            {
+                                Name = "John",
+                                HeadImage = "/ProjectM.UI;component/Resources/Images/logo.png",
+                            },
+                        },
+                        new InviteUserItem()
+                        {
+                            User = new UserItem()
+                            {
+                                Name = "John",
+                                HeadImage = "/ProjectM.UI;component/Resources/Images/logo.png",
+                            },
+                        },
+                        new InviteUserItem()
+                        {
+                            User = new UserItem()
+                            {
+                                Name = "John",
+                                HeadImage = "/ProjectM.UI;component/Resources/Images/logo.png",
+                            },
+                        },
+                        new InviteUserItem()
+                        {
+                            IsExtend = true,
+                            ExtendNumber = 2,
+                        }
+                    }
                 },
                 new ProjectItem()
                 {
@@ -88,6 +129,13 @@ namespace ProjectM.ViewModels
         private int _selectedViewIndex = -1;
         #endregion
 
+        #endregion
+
+        #region Methods
+        public void Exit()
+        {
+            Application.Current.Shutdown(0);
+        }
         #endregion
 
         #region Event Handler

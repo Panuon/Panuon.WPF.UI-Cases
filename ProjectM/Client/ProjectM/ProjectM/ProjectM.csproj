@@ -47,8 +47,8 @@
     <Reference Include="Panuon.WPF, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Panuon.WPF.1.0.1\lib\net472\Panuon.WPF.dll</HintPath>
     </Reference>
-    <Reference Include="Panuon.WPF.UI, Version=1.1.6.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Panuon.WPF.UI.1.1.6.4\lib\net472\Panuon.WPF.UI.dll</HintPath>
+    <Reference Include="Panuon.WPF.UI, Version=1.1.6.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Panuon.WPF.UI.1.1.6.5\lib\net472\Panuon.WPF.UI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -80,6 +80,8 @@
     </Compile>
     <Compile Include="Components\AppBootstapper.cs" />
     <Compile Include="Models\ProjectItem.cs" />
+    <Compile Include="Models\InviteUserItem.cs" />
+    <Compile Include="Models\UserItem.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\Shell\TasksViewModel.cs" />
     <Compile Include="ViewModels\Shell\SettingsViewModel.cs" />

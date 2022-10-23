@@ -45,4 +45,35 @@
                 Value="{StaticResource MainMenuListBoxItemStyle}" />
     </Style>
 
+    <Style x:Key="SubMenuListBoxStyle"
+           TargetType="ListBox"
+           BasedOn="{StaticResource {x:Static purs:StyleKeys.ListBoxStyle}}">
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource InputWatermarkForeground}" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="pu:ListBoxHelper.ItemsWidth"
+                Value="30" />
+        <Setter Property="pu:ListBoxHelper.ItemsHeight"
+                Value="30" />
+        <Setter Property="pu:ListBoxHelper.ItemsCornerRadius"
+                Value="5" />
+        <Setter Property="pu:ListBoxHelper.ItemsSelectedBackground"
+                Value="{DynamicResource ThemeBrush}" />
+        <Setter Property="pu:ListBoxHelper.ItemsSelectedForeground"
+                Value="{DynamicResource MessageInverseForeground}" />
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+
 </ResourceDictionary>

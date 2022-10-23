@@ -104,7 +104,7 @@
                          SelectedIndex="{Binding SelectedProjectIndex}"
                          pu:ListBoxHelper.ItemsIcon="&#xe917;"
                          pu:IconHelper.FontSize="7"
-                         DisplayMemberPath="ProjectName"
+                         HorizontalContentAlignment="Stretch"
                          Style="{DynamicResource MainMenuListBoxStyle}"
                          cm:Message.Attach="[Event SelectionChanged]=[Action OnProjectSelectionChanged]">
                     <ListBox.ItemContainerStyle>
@@ -114,6 +114,45 @@
                                     Value="{Binding AccentBrush}" />
                         </Style>
                     </ListBox.ItemContainerStyle>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock VerticalAlignment="Center"
+                                           Text="{Binding ProjectName}" />
+                                <pu:DropDown x:Name="DrpMenu"
+                                             Grid.Column="1"
+                                             Width="25"
+                                             Height="25"
+                                             Visibility="Collapsed"
+                                             Style="{DynamicResource StandardDropDownStyle}">
+                                    <pu:DropDown.Content>
+                                        <ToggleButton IsChecked="{Binding IsOpen, RelativeSource={RelativeSource AncestorType=pu:DropDown}, Mode=TwoWay}" 
+                                                      Style="{DynamicResource IconToggleButtonStyle}"
+                                                      Content="&#xe916;"/>
+                                    </pu:DropDown.Content>
+                                    <pu:DropDown.Child>
+                                        <StackPanel>
+                                            <Button Content="Delete"
+                                                    pu:ButtonHelper.Icon="&#xe904;"
+                                                    Style="{DynamicResource OptionsButtonStyle}"/>
+                                        </StackPanel>
+                                    </pu:DropDown.Child>
+                                </pu:DropDown>
+                            </Grid>
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=ListBoxItem}, Mode=OneWay}"
+                                             Value="True">
+                                    <Setter TargetName="DrpMenu"
+                                            Property="Visibility"
+                                            Value="Visible" />
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
                 </ListBox>
             </Grid>
         </pu:Drawer>
@@ -128,6 +167,76 @@
             <Rectangle Grid.Row="1"
                        Height="1"
                        Fill="{DynamicResource SeparatorBrush}" />
+            <Grid Margin="30,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <pu:SearchBox Icon="&#xe911;"
+                              Watermark="Search for anything..."
+                              Style="{DynamicResource StandardSearchBoxStyle}"
+                              Width="270" />
+                <Button Grid.Column="2"
+                        Margin="10,0,0,0"
+                        Content="&#xe903;"
+                        Style="{DynamicResource DescriptionIconButtonStyle}"/>
+                <Button Grid.Column="3"
+                        Margin="10,0,0,0"
+                        Content="&#xe90c;"
+                        Style="{DynamicResource DescriptionIconButtonStyle}" />
+                <Button Grid.Column="4"
+                        Margin="10,0,0,0"
+                        Content="&#xe90d;"
+                        Style="{DynamicResource DescriptionIconButtonStyle}" />
+                <pu:DropDown Grid.Column="5"
+                             Margin="25,0,0,0"
+                             Height="40"
+                             Width="130"
+                             pu:DropDownHelper.Placement="BottomLeft"
+                             Style="{DynamicResource StandardDropDownStyle}">
+                    <pu:DropDown.Content>
+                        <ToggleButton HorizontalContentAlignment="Stretch"
+                                      IsChecked="{Binding IsOpen, RelativeSource={RelativeSource AncestorType=pu:DropDown}, Mode=TwoWay}"
+                                      Style="{DynamicResource OptionsToggleButtonStyle}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="Anima Agrawal" 
+                                           FontSize="11" />
+                                <TextBlock Grid.Row="1"
+                                           HorizontalAlignment="Right"
+                                           Text="U.P, India"
+                                           Foreground="{DynamicResource DescriptionForeground}"
+                                           FontSize="11" />
+                                <TextBlock Grid.Column="2"
+                                           Grid.RowSpan="2"
+                                           VerticalAlignment="Center"
+                                           Text="&#xe901;"
+                                           FontFamily="{StaticResource ProjectMIcon}" />
+                            </Grid>
+                        </ToggleButton>
+                    </pu:DropDown.Content>
+                    <pu:DropDown.Child>
+                        <StackPanel>
+                            <Button Content="Exit"
+                                    pu:ButtonHelper.Icon="&#xe904;"
+                                    Style="{DynamicResource OptionsButtonStyle}" 
+                                    cm:Message.Attach="Exit"/>
+                        </StackPanel>
+                    </pu:DropDown.Child>
+                </pu:DropDown>
+            </Grid>
             <pu:CarouselPanel Grid.Row="2"
                               Margin="20"
                               Orientation="Vertical"

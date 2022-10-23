@@ -1,4 +1,5 @@
 ﻿using Panuon.WPF;
+using System.Collections.ObjectModel;
 using System.Windows.Media;
 
 namespace ProjectM.Models
@@ -14,6 +15,11 @@ namespace ProjectM.Models
         #region AccentBrush
         public Brush AccentBrush { get => _accentBrush; set => Set(ref _accentBrush, value); }
         private Brush _accentBrush;
+        #endregion
+
+        #region InviteUserItems
+        public ObservableCollection<InviteUserItem> InviteUserItems { get => _inviteUserItems; set => Set(ref _inviteUserItems, value); }
+        private ObservableCollection<InviteUserItem> _inviteUserItems;
         #endregion
     }
 }
