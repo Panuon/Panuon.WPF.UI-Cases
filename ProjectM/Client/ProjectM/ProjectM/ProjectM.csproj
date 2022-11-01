@@ -79,9 +79,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Components\AppBootstapper.cs" />
+    <Compile Include="Models\ProjectCardItemBase.cs" />
+    <Compile Include="Models\ProjectCardMultiplePictureItem.cs" />
+    <Compile Include="Models\ProjectCardSinglePictureItem.cs" />
+    <Compile Include="Models\ProjectCardTextItem.cs" />
     <Compile Include="Models\ProjectItem.cs" />
     <Compile Include="Models\InviteUserItem.cs" />
     <Compile Include="Models\UserItem.cs" />
+    <Compile Include="TemplateSelectors\ProjectCardItemTemplateSelector.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\Shell\TasksViewModel.cs" />
     <Compile Include="ViewModels\Shell\SettingsViewModel.cs" />

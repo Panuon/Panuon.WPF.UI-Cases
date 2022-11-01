@@ -78,6 +78,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\GroupBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\LabelStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\ListBoxStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -159,6 +167,20 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\headimage_1.png" />
+    <Resource Include="Resources\Images\headimage_2.png" />
+    <Resource Include="Resources\Images\headimage_3.png" />
+    <Resource Include="Resources\Images\headimage_4.png" />
+    <Resource Include="Resources\Images\background_4.png" />
+    <Resource Include="Resources\Images\background_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\background_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\background_2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

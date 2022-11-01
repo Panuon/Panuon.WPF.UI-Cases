@@ -20,5 +20,6 @@
     <SolidColorBrush x:Key="InputWatermarkForeground">#787486</SolidColorBrush>
 
     <SolidColorBrush x:Key="ThemeBrush">#5030E5</SolidColorBrush>
-    
+    <SolidColorBrush x:Key="ThemeBrushTrans6">#665030E5</SolidColorBrush>
+
 </ResourceDictionary>

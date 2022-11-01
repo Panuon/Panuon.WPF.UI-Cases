@@ -52,6 +52,7 @@
     <Compile Include="Components\Logger.cs" />
     <Compile Include="Contracts\ILogger.cs" />
     <Compile Include="Enums\AppTheme.cs" />
+    <Compile Include="Enums\ProjectCardPriority.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

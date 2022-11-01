@@ -8,11 +8,14 @@
             xmlns:pu="clr-namespace:Panuon.WPF.UI;assembly=Panuon.WPF.UI"
             xmlns:purs="clr-namespace:Panuon.WPF.UI.Resources;assembly=Panuon.WPF.UI"
             xmlns:pucore="clr-namespace:Panuon.WPF;assembly=Panuon.WPF"
+            xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
             mc:Ignorable="d"
             Title="ShellView"
             Height="600"
             Width="950"
-            pu:WindowXCaption.Height="0">
+            pu:WindowXCaption.Height="0"
+            pu:ScrollBarHelper.ThumbBackground="{DynamicResource ThemeBrushTrans6}"
+            pu:ScrollBarHelper.HoverThumbBackground="{DynamicResource ThemeBrush}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
@@ -195,7 +198,7 @@
                 <pu:DropDown Grid.Column="5"
                              Margin="25,0,0,0"
                              Height="40"
-                             Width="130"
+                             Width="Auto"
                              pu:DropDownHelper.Placement="BottomLeft"
                              Style="{DynamicResource StandardDropDownStyle}">
                     <pu:DropDown.Content>
@@ -211,6 +214,7 @@
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition />
                                     <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Text="Anima Agrawal" 
                                            FontSize="11" />
@@ -219,7 +223,19 @@
                                            Text="U.P, India"
                                            Foreground="{DynamicResource DescriptionForeground}"
                                            FontSize="11" />
-                                <TextBlock Grid.Column="2"
+                                <Border Grid.RowSpan="2"
+                                        Grid.Column="2"
+                                        Margin="15,0,0,0"
+                                        Width="30"
+                                        Height="30"
+                                        CornerRadius="15"
+                                        BorderThickness="1"
+                                        BorderBrush="{DynamicResource WindowBackground}">
+                                    <Border.Background>
+                                        <ImageBrush ImageSource="/ProjectM.UI;component/Resources/Images/headimage_1.png" />
+                                    </Border.Background>
+                                </Border>
+                                <TextBlock Grid.Column="3"
                                            Grid.RowSpan="2"
                                            VerticalAlignment="Center"
                                            Text="&#xe901;"
@@ -238,7 +254,7 @@
                 </pu:DropDown>
             </Grid>
             <pu:CarouselPanel Grid.Row="2"
-                              Margin="20"
+                              Margin="20,20,20,0"
                               Orientation="Vertical"
                               Animation="Fade,Flow"
                               AnimationDuration="0:0:0.3"

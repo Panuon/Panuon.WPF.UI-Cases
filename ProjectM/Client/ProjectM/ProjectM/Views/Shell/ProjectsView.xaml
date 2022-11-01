@@ -6,10 +6,165 @@
              xmlns:local="clr-namespace:ProjectM.Views.Shell"
              xmlns:pu="clr-namespace:Panuon.WPF.UI;assembly=Panuon.WPF.UI"
              xmlns:purs="clr-namespace:Panuon.WPF.UI.Resources;assembly=Panuon.WPF.UI"
+             xmlns:root="clr-namespace:ProjectM"
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="800"
              x:Name="this">
+    <UserControl.Resources>
+        <root:ProjectCardItemTemplateSelector x:Key="ProjectCardItemTemplateSelector" />
+
+        <DataTemplate x:Key="InvitedUserItemDataTemplate">
+            <Border x:Name="BdrContainer"
+                    Margin="-5,0,0,0"
+                    Width="25"
+                    Height="25"
+                    CornerRadius="12.5"
+                    BorderThickness="1"
+                    BorderBrush="{DynamicResource WindowBackground}">
+                <Border.Background>
+                    <ImageBrush ImageSource="{Binding User.HeadImage}" />
+                </Border.Background>
+                <TextBlock x:Name="TxtExtend"
+                           Visibility="Collapsed"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Text="{Binding ExtendNumber,StringFormat=+0}"
+                           Foreground="{Binding DataContext.CurrentProject.AccentBrush, ElementName=this}" />
+            </Border>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding IsExtend}"
+                             Value="True">
+                    <Setter TargetName="TxtExtend"
+                            Property="Visibility"
+                            Value="Visible" />
+                    <Setter TargetName="BdrContainer"
+                            Property="Background"
+                            Value="{Binding Foreground, Converter={StaticResource TransparentBrushConverter}, ConverterParameter=0.2, ElementName=TxtExtend}" />
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ProjectCardDataTemplate">
+            <pu:Card Margin="0,0,0,15"
+                     BorderThickness="0"
+                     CornerRadius="10"
+                     VerticalContentAlignment="Stretch"
+                     HorizontalContentAlignment="Stretch"
+                     Background="{DynamicResource WindowBackground}">
+                <Grid Margin="15">
+                    <StackPanel>
+                        <Label x:Name="LblPriority"
+                               FontSize="12"
+                               HorizontalAlignment="Left"
+                               Content="{Binding Priority}"
+                               Style="{DynamicResource LowPriorityLabelStyle}" />
+                        <TextBlock Margin="0,5,0,0"
+                                   Text="{Binding DisplayName}"
+                                   FontSize="18"
+                                   FontWeight="SemiBold" />
+                        <ContentControl x:Name="CcContent"
+                                        Margin="0,5,0,0"
+                                        Content="{Binding}"
+                                        ContentTemplateSelector="{StaticResource ProjectCardItemTemplateSelector}">
+                            <ContentControl.Resources>
+                                <DataTemplate x:Key="ProjectCardTextItemDataTemplate">
+                                    <TextBlock Foreground="{DynamicResource DescriptionForeground}"
+                                               TextWrapping="Wrap"
+                                               Text="{Binding Text}" />
+                                </DataTemplate>
+                                <DataTemplate x:Key="ProjectCardSinglePictureItemDataTemplate">
+                                    <Border BorderBrush="{DynamicResource SeparatorBrush}"
+                                            BorderThickness="1"
+                                            CornerRadius="5"
+                                            Height="{Binding ActualWidth,Converter={StaticResource {x:Static purs:ConverterKeys.DoubleMultiplyByConverter}}, ConverterParameter=0.5, RelativeSource={RelativeSource Self}, Mode=OneWay}">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="{Binding Image}" />
+                                        </Border.Background>
+                                    </Border>
+                                </DataTemplate>
+                                <DataTemplate x:Key="ProjectCardMultiplePictureItemDataTemplate">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition Width="10" />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Border BorderBrush="{DynamicResource SeparatorBrush}"
+                                                BorderThickness="1"
+                                                CornerRadius="5"
+                                                Height="{Binding ActualWidth,Converter={StaticResource {x:Static purs:ConverterKeys.DoubleMultiplyByConverter}}, ConverterParameter=0.7, RelativeSource={RelativeSource Self}, Mode=OneWay}">
+                                            <Border.Background>
+                                                <ImageBrush ImageSource="{Binding Image1}" />
+                                            </Border.Background>
+                                        </Border>
+                                        <Border Grid.Column="2"
+                                                BorderBrush="{DynamicResource SeparatorBrush}"
+                                                BorderThickness="1"
+                                                CornerRadius="5"
+                                                Height="{Binding ActualWidth,Converter={StaticResource {x:Static purs:ConverterKeys.DoubleMultiplyByConverter}}, ConverterParameter=0.7, RelativeSource={RelativeSource Self}, Mode=OneWay}">
+                                            <Border.Background>
+                                                <ImageBrush ImageSource="{Binding Image2}" />
+                                            </Border.Background>
+                                        </Border>
+                                    </Grid>
+                                </DataTemplate>
+                            </ContentControl.Resources>
+                        </ContentControl>
+                        <Grid Margin="0,20,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <ItemsControl ItemTemplate="{StaticResource InvitedUserItemDataTemplate}"
+                                          ItemsSource="{Binding InviteUserItems}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                            </ItemsControl>
+                            <TextBlock Grid.Column="2"
+                                       FontSize="12"
+                                       Foreground="{DynamicResource DescriptionForeground}"
+                                       VerticalAlignment="Bottom">
+                                <Run Text="&#xe90b;"
+                                     FontFamily="{StaticResource ProjectMIcon}" />
+                                <Run Text="10" />
+                                <Run Text="comments" />
+                            </TextBlock>
+                            <TextBlock Grid.Column="3"
+                                       FontSize="12"
+                                       Margin="7,0,0,0"
+                                       Foreground="{DynamicResource DescriptionForeground}"
+                                       VerticalAlignment="Bottom">
+                                <Run Text="&#xe906;"
+                                     FontFamily="{StaticResource ProjectMIcon}" />
+                                <Run Text="10" />
+                                <Run Text="files" />
+                            </TextBlock>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </pu:Card>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding Priority}"
+                             Value="High">
+                    <Setter TargetName="LblPriority"
+                            Property="Style"
+                            Value="{DynamicResource HighPriorityLabelStyle}" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Priority}"
+                             Value="Completed">
+                    <Setter TargetName="LblPriority"
+                            Property="Style"
+                            Value="{DynamicResource CompletedPriorityLabelStyle}" />
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -49,44 +204,13 @@
 
             <ItemsControl Grid.Column="5"
                           Margin="15,0,0,0"
+                          ItemTemplate="{StaticResource InvitedUserItemDataTemplate}"
                           ItemsSource="{Binding CurrentProject.InviteUserItems}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal"/>
+                        <StackPanel Orientation="Horizontal" />
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Border x:Name="BdrContainer"
-                                Margin="-5,0,0,0"
-                                Width="25"
-                                Height="25"
-                                CornerRadius="12.5"
-                                BorderThickness="1"
-                                BorderBrush="{DynamicResource WindowBackground}">
-                            <Border.Background>
-                                <ImageBrush ImageSource="{Binding User.HeadImage}" />
-                            </Border.Background>
-                            <TextBlock x:Name="TxtExtend"
-                                       Visibility="Collapsed"
-                                       VerticalAlignment="Center"
-                                       HorizontalAlignment="Center"
-                                       Text="{Binding ExtendNumber,StringFormat=+0}"
-                                       Foreground="{Binding DataContext.CurrentProject.AccentBrush, ElementName=this}" />
-                        </Border>
-                        <DataTemplate.Triggers>
-                            <DataTrigger Binding="{Binding IsExtend}"
-                                         Value="True">
-                                <Setter TargetName="TxtExtend"
-                                        Property="Visibility"
-                                        Value="Visible" />
-                                <Setter TargetName="BdrContainer"
-                                        Property="Background"
-                                        Value="{Binding Foreground, Converter={StaticResource TransparentBrushConverter}, ConverterParameter=0.2, ElementName=TxtExtend}" />
-                            </DataTrigger>
-                        </DataTemplate.Triggers>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
             </ItemsControl>
 
         </Grid>
@@ -118,7 +242,7 @@
             <Button Grid.Column="3"
                     Style="{DynamicResource BoundingButtonStyle}"
                     pu:ButtonHelper.Icon="&#xe90f;"
-                    Content="Share"/>
+                    Content="Share" />
             <Rectangle Grid.Column="4"
                        Margin="15,5"
                        Width="1"
@@ -126,10 +250,58 @@
             <ListBox Grid.Column="5"
                      FontFamily="{StaticResource ProjectMIcon}"
                      Style="{DynamicResource SubMenuListBoxStyle}">
-                <ListBoxItem Content="&#xe90e;" 
-                             IsSelected="True"/>
+                <ListBoxItem Content="&#xe90e;"
+                             IsSelected="True" />
                 <ListBoxItem Content="&#xe909;" />
             </ListBox>
+        </Grid>
+        <Grid Grid.Row="2"
+              Margin="0,30,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <GroupBox Style="{DynamicResource ProjectCardGroupBoxStyle}"
+                      Header="To Do"
+                      Tag="4"
+                      pu:GroupBoxHelper.HeaderSeparatorBrush="#5030E5">
+                <pu:GroupBoxHelper.ExtendControl>
+                    <Button Grid.Column="4"
+                            FontSize="18"
+                            Foreground="#5030E5"
+                            Content="&#xe900;"
+                            FontFamily="{StaticResource ProjectMIcon}"
+                            Style="{DynamicResource DescriptionButtonStyle}" />
+                </pu:GroupBoxHelper.ExtendControl>
+                <ScrollViewer VerticalScrollBarVisibility="Auto"
+                              pu:ScrollViewerHelper.ContentSpacing="5">
+                    <ItemsControl ItemsSource="{Binding CurrentProject.ToDoCardItems}"
+                                  ItemTemplate="{StaticResource ProjectCardDataTemplate}" />
+                </ScrollViewer>
+            </GroupBox>
+            <GroupBox Grid.Column="2"
+                      Style="{DynamicResource ProjectCardGroupBoxStyle}"
+                      Header="OnProgress"
+                      Tag="4"
+                      pu:GroupBoxHelper.HeaderSeparatorBrush="#FFA500">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding CurrentProject.OnProgressCardItems}"
+                                  ItemTemplate="{StaticResource ProjectCardDataTemplate}" />
+                </ScrollViewer>
+            </GroupBox>
+            <GroupBox Grid.Column="4"
+                      Style="{DynamicResource ProjectCardGroupBoxStyle}"
+                      Header="Done"
+                      Tag="4"
+                      pu:GroupBoxHelper.HeaderSeparatorBrush="#8BC48A">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding CurrentProject.DoneCardItems}"
+                                  ItemTemplate="{StaticResource ProjectCardDataTemplate}" />
+                </ScrollViewer>
+            </GroupBox>
         </Grid>
     </Grid>
 </UserControl>

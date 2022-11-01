@@ -21,7 +21,8 @@
                                        IconFontSize="16" />
 
                 </ResourceDictionary>
-                
+                <pucore:SharedResourceDictionary Source="/Panuon.WPF.UI;component/Styles/ScrollBar.xaml" />
+                <pucore:SharedResourceDictionary Source="/Panuon.WPF.UI;component/Styles/ScrollViewer.xaml" />
                 <ResourceDictionary Source="/ProjectM.UI;component/Collection.xaml" />
                 <ResourceDictionary Source="/ProjectM.UI;component/Themes/Light.xaml" />
 

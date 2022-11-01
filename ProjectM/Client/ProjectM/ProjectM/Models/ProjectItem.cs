@@ -21,5 +21,20 @@ namespace ProjectM.Models
         public ObservableCollection<InviteUserItem> InviteUserItems { get => _inviteUserItems; set => Set(ref _inviteUserItems, value); }
         private ObservableCollection<InviteUserItem> _inviteUserItems;
         #endregion
+
+        #region ToDoCardItems
+        public ObservableCollection<ProjectCardItemBase> ToDoCardItems { get => _toDoCardItems; set => Set(ref _toDoCardItems, value); }
+        private ObservableCollection<ProjectCardItemBase> _toDoCardItems;
+        #endregion
+
+        #region OnProgressCardItems
+        public ObservableCollection<ProjectCardItemBase> OnProgressCardItems { get => _onProgressCardItems; set => Set(ref _onProgressCardItems, value); }
+        private ObservableCollection<ProjectCardItemBase> _onProgressCardItems;
+        #endregion
+
+        #region DoneCardItems
+        public ObservableCollection<ProjectCardItemBase> DoneCardItems { get => _doneCardItems; set => Set(ref _doneCardItems, value); }
+        private ObservableCollection<ProjectCardItemBase> _doneCardItems;
+        #endregion
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using Panuon.WPF;
 using ProjectM.Models;
 using ProjectM.Shared;
 using ProjectM.UI;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace ProjectM.ViewModels
@@ -40,7 +42,7 @@ namespace ProjectM.ViewModels
                             User = new UserItem()
                             {
                                 Name = "John",
-                                HeadImage = "/ProjectM.UI;component/Resources/Images/logo.png",
+                                HeadImage = "/ProjectM.UI;component/Resources/Images/headimage_1.png",
                             },
                         },
                         new InviteUserItem()
@@ -48,7 +50,7 @@ namespace ProjectM.ViewModels
                             User = new UserItem()
                             {
                                 Name = "John",
-                                HeadImage = "/ProjectM.UI;component/Resources/Images/logo.png",
+                                HeadImage = "/ProjectM.UI;component/Resources/Images/headimage_2.png",
                             },
                         },
                         new InviteUserItem()
@@ -56,7 +58,7 @@ namespace ProjectM.ViewModels
                             User = new UserItem()
                             {
                                 Name = "John",
-                                HeadImage = "/ProjectM.UI;component/Resources/Images/logo.png",
+                                HeadImage = "/ProjectM.UI;component/Resources/Images/headimage_3.png",
                             },
                         },
                         new InviteUserItem()
@@ -64,7 +66,7 @@ namespace ProjectM.ViewModels
                             User = new UserItem()
                             {
                                 Name = "John",
-                                HeadImage = "/ProjectM.UI;component/Resources/Images/logo.png",
+                                HeadImage = "/ProjectM.UI;component/Resources/Images/headimage_4.png",
                             },
                         },
                         new InviteUserItem()
@@ -72,7 +74,121 @@ namespace ProjectM.ViewModels
                             IsExtend = true,
                             ExtendNumber = 2,
                         }
-                    }
+                    },
+                    ToDoCardItems = new ObservableCollection<ProjectCardItemBase>()
+                    {
+                        new ProjectCardTextItem()
+                        {
+                            Comments = 12,
+                            Files = 0,
+                            Priority = ProjectCardPriority.Low,
+                            DisplayName = "Brainstorming",
+                            Text = "Brainstorming brings team members' diverse experience into play. ",
+                            InviteUserItems = new ObservableCollection<InviteUserItem>()
+                            {
+                                new InviteUserItem()
+                                {
+                                    User = new UserItem()
+                                    {
+                                        Name = "John",
+                                        HeadImage = "/ProjectM.UI;component/Resources/Images/headimage_1.png",
+                                    },
+                                },
+                                new InviteUserItem()
+                                {
+                                    User = new UserItem()
+                                    {
+                                        Name = "John",
+                                        HeadImage = "/ProjectM.UI;component/Resources/Images/headimage_2.png",
+                                    },
+                                },
+                                new InviteUserItem()
+                                {
+                                    User = new UserItem()
+                                    {
+                                        Name = "John",
+                                        HeadImage = "/ProjectM.UI;component/Resources/Images/headimage_3.png",
+                                    },
+                                },
+                            },
+
+                        },
+                        new ProjectCardSinglePictureItem()
+                        {
+                            Comments = 12,
+                            Files = 0,
+                            Priority = ProjectCardPriority.High,
+                            DisplayName = "Brainstorming",
+                            Image = "/ProjectM.UI;component/Resources/Images/background_1.png",
+                            InviteUserItems = new ObservableCollection<InviteUserItem>()
+                            {
+                                new InviteUserItem()
+                                {
+                                    User = new UserItem()
+                                    {
+                                        Name = "John",
+                                        HeadImage = "/ProjectM.UI;component/Resources/Images/headimage_1.png",
+                                    },
+                                },
+                                new InviteUserItem()
+                                {
+                                    User = new UserItem()
+                                    {
+                                        Name = "John",
+                                        HeadImage = "/ProjectM.UI;component/Resources/Images/headimage_2.png",
+                                    },
+                                },
+                                new InviteUserItem()
+                                {
+                                    User = new UserItem()
+                                    {
+                                        Name = "John",
+                                        HeadImage = "/ProjectM.UI;component/Resources/Images/headimage_3.png",
+                                    },
+                                },
+                            },
+
+                        },
+                        new ProjectCardMultiplePictureItem()
+                        {
+                            Comments = 12,
+                            Files = 0,
+                            Priority = ProjectCardPriority.Completed,
+                            DisplayName = "Brainstorming",
+                            Image1 = "/ProjectM.UI;component/Resources/Images/background_2.png",
+                            Image2 = "/ProjectM.UI;component/Resources/Images/background_3.png",
+                            InviteUserItems = new ObservableCollection<InviteUserItem>()
+                            {
+                                new InviteUserItem()
+                                {
+                                    User = new UserItem()
+                                    {
+                                        Name = "John",
+                                        HeadImage = "/ProjectM.UI;component/Resources/Images/headimage_1.png",
+                                    },
+                                },
+                                new InviteUserItem()
+                                {
+                                    User = new UserItem()
+                                    {
+                                        Name = "John",
+                                        HeadImage = "/ProjectM.UI;component/Resources/Images/headimage_2.png",
+                                    },
+                                },
+                                new InviteUserItem()
+                                {
+                                    User = new UserItem()
+                                    {
+                                        Name = "John",
+                                        HeadImage = "/ProjectM.UI;component/Resources/Images/headimage_3.png",
+                                    },
+                                },
+                            },
+
+                        }
+
+                    },
+                    
                 },
                 new ProjectItem()
                 {
@@ -114,6 +230,14 @@ namespace ProjectM.ViewModels
         private ObservableCollection<ProjectItem> _projectItems;
         #endregion
 
+        public ICommand CurrentPageChangedCommand { get => _currentPageChangedCommand; set => Set(ref _currentPageChangedCommand, value); }
+        private ICommand _currentPageChangedCommand = new RelayCommand(OnExecuted);
+
+        private static void OnExecuted(object obj)
+        {
+        }
+
+
         #region SelectedMainMenuIndex
         public int SelectedMainMenuIndex { get => _selectedMainMenuIndex; set => Set(ref _selectedMainMenuIndex, value); }
         private int _selectedMainMenuIndex;
@@ -126,7 +250,7 @@ namespace ProjectM.ViewModels
 
         #region SelectedViewIndex
         public int SelectedViewIndex { get => _selectedViewIndex; set => Set(ref _selectedViewIndex, value); }
-        private int _selectedViewIndex = -1;
+        private int _selectedViewIndex = 0;
         #endregion
 
         #endregion
