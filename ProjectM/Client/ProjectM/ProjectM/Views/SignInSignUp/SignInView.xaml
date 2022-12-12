@@ -1,0 +1,37 @@
+﻿<Grid x:Class="ProjectM.Views.SignInSignUp.SignInView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:ProjectM.Views.SignInSignUp"
+      xmlns:cm="http://www.caliburnproject.org"
+      xmlns:pu="clr-namespace:Panuon.WPF.UI;assembly=Panuon.WPF.UI"
+      xmlns:purs="clr-namespace:Panuon.WPF.UI.Resources;assembly=Panuon.WPF.UI"
+      xmlns:pucore="clr-namespace:Panuon.WPF;assembly=Panuon.WPF"
+      mc:Ignorable="d"
+      d:DesignHeight="450"
+      d:DesignWidth="800">
+    <StackPanel>
+        <TextBox Style="{DynamicResource StandardTextBoxStyle}"
+                 pu:TextBoxHelper.Watermark="Email / Phone / UserName" />
+        <PasswordBox Margin="0,15,0,0"
+                     Style="{DynamicResource StandardPasswordBoxStyle}"
+                     pu:PasswordBoxHelper.Watermark="Password" />
+        <Grid Margin="0,15,0,0">
+            <pu:Switch Style="{DynamicResource StandardSwitchStyle}"
+                       Content="Remember me" />
+            <Button HorizontalAlignment="Right"
+                    Style="{DynamicResource DescriptionThemeLinkButtonStyle}"
+                    Content="Forget password?" />
+        </Grid>
+        <Button x:Name="SignIn"
+                Margin="0,30,0,0"
+                Style="{DynamicResource StandardButtonStyle}"
+                Content="Sign In" />
+        <Button x:Name="SignUp"
+                Margin="0,10,0,0"
+                Style="{DynamicResource DescriptionThemeLinkButtonStyle}"
+                Content="Sign Up" />
+    </StackPanel>
+
+</Grid>

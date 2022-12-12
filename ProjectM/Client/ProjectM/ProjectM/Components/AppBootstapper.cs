@@ -105,9 +105,9 @@ namespace ProjectM.Components
 
         protected override void OnStartup(object sender, System.Windows.StartupEventArgs e)
         {
-            var viewModel = new ShellViewModel();
+            var viewModel = new SignInSignUpViewModel();
             _windowManager.ShowWindow(viewModel);
         }
-        #endregion
+#endregion
     }
 }

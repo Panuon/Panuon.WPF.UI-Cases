@@ -13,6 +13,7 @@
             Title="ShellView"
             Height="600"
             Width="950"
+            WindowStartupLocation="CenterScreen"
             pu:WindowXCaption.Height="0"
             pu:ScrollBarHelper.ThumbBackground="{DynamicResource ThemeBrushTrans6}"
             pu:ScrollBarHelper.HoverThumbBackground="{DynamicResource ThemeBrush}">

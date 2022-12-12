@@ -79,6 +79,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Components\AppBootstapper.cs" />
+    <Compile Include="Models\Messages\SwitchPageMessage.cs" />
     <Compile Include="Models\ProjectCardItemBase.cs" />
     <Compile Include="Models\ProjectCardMultiplePictureItem.cs" />
     <Compile Include="Models\ProjectCardSinglePictureItem.cs" />
@@ -94,6 +95,9 @@
     <Compile Include="ViewModels\Shell\MessagesViewModel.cs" />
     <Compile Include="ViewModels\Shell\MembersViewModel.cs" />
     <Compile Include="ViewModels\Shell\HomeViewModel.cs" />
+    <Compile Include="ViewModels\SignInSignUpViewModel.cs" />
+    <Compile Include="ViewModels\SignInSignUp\SignUpViewModel.cs" />
+    <Compile Include="ViewModels\SignInSignUp\SignInViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -149,6 +153,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ShellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SignInSignUpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SignInSignUp\SignInView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SignInSignUp\SignUpView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
