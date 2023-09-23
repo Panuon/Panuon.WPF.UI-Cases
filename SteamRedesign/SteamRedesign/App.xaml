@@ -1,0 +1,21 @@
+﻿<Application x:Class="SteamRedesign.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:SteamRedesign"
+             xmlns:pu="https://opensource.panuon.com/wpf-ui"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="{x:Static pu:ResourceDictionaryUris.All}" />
+                <ResourceDictionary>
+                    <pu:GlobalSettings x:Key="globalSettings"
+                                       FontSize="14"
+                                       FontFamily="Calibri"
+                                       IconFontSize="16"
+                                       IconFontFamily="/SteamRedesign;component/Resources/#iconfont" />
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
