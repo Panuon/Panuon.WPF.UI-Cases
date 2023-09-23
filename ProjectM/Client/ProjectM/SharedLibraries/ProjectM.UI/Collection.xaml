@@ -9,7 +9,9 @@
         <ResourceDictionary Source="/ProjectM.UI;component/Styles/GroupBoxStyle.xaml" />
         <ResourceDictionary Source="/ProjectM.UI;component/Styles/LabelStyle.xaml" />
         <ResourceDictionary Source="/ProjectM.UI;component/Styles/ListBoxStyle.xaml" />
+        <ResourceDictionary Source="/ProjectM.UI;component/Styles/PasswordBoxStyle.xaml" />
         <ResourceDictionary Source="/ProjectM.UI;component/Styles/SearchBoxStyle.xaml" />
+        <ResourceDictionary Source="/ProjectM.UI;component/Styles/SwitchStyle.xaml" />
         <ResourceDictionary Source="/ProjectM.UI;component/Styles/TextBoxStyle.xaml" />
         <ResourceDictionary Source="/ProjectM.UI;component/Styles/ToggleButtonStyle.xaml" />
         <ResourceDictionary Source="/ProjectM.UI;component/Styles/WindowXStyle.xaml" />

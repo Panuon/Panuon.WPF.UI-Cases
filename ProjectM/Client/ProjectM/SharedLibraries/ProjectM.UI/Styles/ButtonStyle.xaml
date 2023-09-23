@@ -7,6 +7,19 @@
         <pucore:SharedResourceDictionary Source="/Panuon.WPF.UI;component/Styles/ButtonStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
+    <Style x:Key="StandardButtonStyle"
+           TargetType="Button"
+           BasedOn="{StaticResource {x:Static purs:StyleKeys.ButtonStyle}}">
+        <Setter Property="Height"
+                Value="35" />
+        <Setter Property="Background"
+                Value="{DynamicResource ThemeBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource MessageInverseForeground}" />
+        <Setter Property="pu:ButtonHelper.CornerRadius"
+                Value="5" />
+    </Style>
+    
     <Style x:Key="DescriptionButtonStyle"
            TargetType="Button"
            BasedOn="{StaticResource {x:Static purs:StyleKeys.ButtonStyle}}">
@@ -17,7 +30,24 @@
         <Setter Property="pu:ButtonHelper.HoverForeground"
                 Value="{DynamicResource MessageForeground}" />
     </Style>
-    
+
+    <Style x:Key="DescriptionThemeLinkButtonStyle"
+           TargetType="Button"
+           BasedOn="{StaticResource DescriptionButtonStyle}">
+        <Setter Property="Cursor"
+                Value="Hand" />
+        <Setter Property="pu:ButtonHelper.HoverForeground"
+                Value="{DynamicResource ThemeBrush}" />
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}"
+                               TextDecorations="Underline" />
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style x:Key="IconButtonStyle"
            TargetType="Button"
            BasedOn="{StaticResource {x:Static purs:StyleKeys.ButtonStyle}}">
@@ -76,7 +106,7 @@
                 Value="2" />
     </Style>
 
-    <Style x:Key="BoundingButtonStyle"
+    <Style x:Key="BoundingHoverBackgroundButtonStyle"
            TargetType="Button"
            BasedOn="{StaticResource {x:Static purs:StyleKeys.ButtonStyle}}">
         <Setter Property="pu:IconHelper.FontSize"
@@ -102,4 +132,31 @@
         <Setter Property="pu:ButtonHelper.HoverForeground"
                 Value="{DynamicResource MessageInverseForeground}" />
     </Style>
+
+    <Style x:Key="BoundingButtonStyle"
+           TargetType="Button"
+           BasedOn="{StaticResource {x:Static purs:StyleKeys.ButtonStyle}}">
+        <Setter Property="pu:IconHelper.FontSize"
+                Value="14" />
+        <Setter Property="Padding"
+                Value="10,0" />
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource DescriptionForeground}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource InputBorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="pu:ButtonHelper.CornerRadius"
+                Value="4" />
+        <Setter Property="pu:ButtonHelper.HoverForeground"
+                Value="{DynamicResource ThemeBrush}" />
+        <Setter Property="pu:ButtonHelper.HoverBorderBrush"
+                Value="{DynamicResource ThemeBrush}" />
+        <Setter Property="pu:ButtonHelper.HoverForeground"
+                Value="{DynamicResource ThemeBrush}" />
+
+    </Style>
+    
 </ResourceDictionary>

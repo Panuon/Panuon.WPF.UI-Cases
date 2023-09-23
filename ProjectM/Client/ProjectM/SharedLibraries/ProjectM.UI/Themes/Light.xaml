@@ -15,7 +15,7 @@
 
 
     <SolidColorBrush x:Key="InputBackground">#F5F5F5</SolidColorBrush>
-    <SolidColorBrush x:Key="InputBorderBrush">#787486</SolidColorBrush>
+    <SolidColorBrush x:Key="InputBorderBrush">#CACACA</SolidColorBrush>
     <SolidColorBrush x:Key="InputForeground">#0D062D</SolidColorBrush>
     <SolidColorBrush x:Key="InputWatermarkForeground">#787486</SolidColorBrush>
 
